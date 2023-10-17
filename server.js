@@ -13,11 +13,14 @@ app.use(bodyParser.json());
 
 createTables()
 
-const PORT = 9000;
+// app.use allows you to use methods from other files in the application (authors.js in this case)
+// We're using it to "use" the POST request defined in authors.js
 
+//      ↓ this here ↓ is the PREFIX (/api/authors) for all the routes defined in "authors.js"
+app.use('/api/authors', require('./routes/authors'));
 
-
-
+//                                                 app.use prefix  |    ↓    || ↓ | router.post (defined in authors.js)
+// The endpoint to create a new author now would be localhost:8008/api/authors/new  <-- (the "new" part came from the POST we made in authors.js - remember the route defined in the app.use is merely a prefix )
 
 
 app.listen(9000);
