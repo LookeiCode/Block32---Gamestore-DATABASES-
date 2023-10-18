@@ -22,5 +22,7 @@ app.use('/api/authors', require('./routes/authors'));
 //                                                 app.use prefix  |    ↓    || ↓ | router.post (defined in authors.js)
 // The endpoint to create a new author now would be localhost:8008/api/authors/new  <-- (the "new" part came from the POST we made in authors.js - remember the route defined in the app.use is merely a prefix )
 
+app.use('/api/posts', require('./routes/posts'));
+
 
 app.listen(9000);
