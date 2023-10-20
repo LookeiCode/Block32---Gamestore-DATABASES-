@@ -8,7 +8,7 @@ const createTables = async () => {
     try {
         // creating an "authors" table with an id, a name, and an email column
         await pool.query(`
-        CREATE TABLE IF NONE EXISTS authors (
+        CREATE TABLE IF NOT EXISTS authors (
             id SERIAL PRIMARY KEY,
             name VARCHAR(255) NOT NULL,
             email VARCHAR(255) NOT NULL
@@ -19,7 +19,7 @@ const createTables = async () => {
         // The author id column refers to the authors table - it references "authors(id)"
         // "ON DELETE CASCADE" means that if you delete an author, it will delete all the post associated with that author - the opposite would be "ON DELETE PROTECT" where if the author is deleted, all the posts will stay
         await pool.query(`
-        CREATE TABLE IF NONE EXISTS posts (
+        CREATE TABLE IF NOT EXISTS posts (
             id SERIAL PRIMARY KEY,
             pub_date DATE NOT NULL,
             title VARCHAR(255) NOT NULL,
