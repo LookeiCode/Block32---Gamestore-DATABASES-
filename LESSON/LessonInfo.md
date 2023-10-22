@@ -71,3 +71,9 @@
 // E - Express.js
 // R - React.js
 // N - Node.js
+
+// ****************************************************************************************************************
+// ALWAYS NAME TABLES/COLUMNS LOWERCASE IN POSTGRES
+
+Note that PostgreSQL by default folds all unquoted named to lowercase.
+Under Postgres you should always use lowercase names for tables and columns - or you can get nasty surprises 
